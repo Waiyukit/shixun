@@ -15,7 +15,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class MyClass {
     AndroidDriver<WebElement> driver;
-
+//       by 韦宇杰 2019.6.12
     @BeforeMethod
     public void bm() throws MalformedURLException {
         File classpathRoot = new File(System.getProperty("user.dir"));
@@ -33,26 +33,30 @@ public class MyClass {
     }
     @Test
     //查看“我的”，点击名字，修改个人资料并保存
-    public void Xiugaiziliao(){
+    public void gainicheng(){
         driver.findElementByAndroidUIAutomator
             ("new UiSelector().text(\"我的\")").click();
-        //driver.findElement(By.className("android.widget.ImageButton")).click();
+        driver.findElement(By.id("personal_data")).click();//打开个人资料
         driver.findElementByAndroidUIAutomator
-                ("new UiSelector().text(\"杨\")").click();
+                ("new UiSelector().text(\"支持4-10个中英文、数字、下划线\")").sendKeys("测试昵称");
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"保存\")").click();
-        System.out.println("保存个人资料");
+        System.out.println("修改昵称保存个人资料");
     }
 
     @Test
+    //打开APP主页，行程
     public void shoyetuijian(){
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"首页\")").click();
-        System.out.println("打开主页");
+        driver.findElementByAndroidUIAutomator
+                ("new UiSelector().text(\"行程\")").click();
+        System.out.println("打开主页+行程");
 
     }
 
     @Test
+    //查看消息里的具体动态
     public void chakanxiaoxi(){
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"消息\")").click();
@@ -62,6 +66,7 @@ public class MyClass {
     }
 
     @Test
+    //在聊天窗口回复信息
     public void chakanliaotian(){
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"消息\")").click();
@@ -69,12 +74,13 @@ public class MyClass {
                 ("new UiSelector().text(\"聊天\")").click();
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"你好\")").click();
-        driver.findElement(By.id("et_chat_message")).sendKeys("哈哈哈");
+        driver.findElement(By.id("et_chat_message")).sendKeys("耶耶耶耶耶耶耶耶耶耶耶");
         driver.findElement(By.id("btn_chat_message_send")).click();
         System.out.println("查看聊天窗口并回复");
 
     }
     @Test
+    //查看@我的消息
     public void chakanatwode(){
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"消息\")").click();
@@ -85,17 +91,19 @@ public class MyClass {
 
     }
     @Test
+    //查看给我点赞的消息
     public void chakandianzan(){
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"消息\")").click();
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"点赞\")").click();
 
-        System.out.println("查看给我点赞的的消息");
+        System.out.println("查看给我点赞的消息");
 
     }
 
     @Test
+    //查看通知
     public void chakantongzhi(){
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"消息\")").click();
@@ -106,6 +114,7 @@ public class MyClass {
 
     }
     @Test
+    //添加行程，查询活动
     public void tianjiaxingcheng(){
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"行程\")").click();
@@ -120,6 +129,7 @@ public class MyClass {
     }
 
     @Test
+    //查看添加行程里的每一项标题
     public void tianjiaxingchengchakan(){
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"行程\")").click();
@@ -141,6 +151,7 @@ public class MyClass {
 
     }
     @Test
+    //查看历史行程
     public void lishixingcheng(){
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"行程\")").click();
@@ -153,6 +164,7 @@ public class MyClass {
 
     }
     @Test
+    //查看身份认证
     public void shenfenrenzheng(){
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"行程\")").click();
@@ -165,6 +177,7 @@ public class MyClass {
 
     }
     @Test
+    //导入日历
     public void daorurili(){
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"行程\")").click();
@@ -178,6 +191,7 @@ public class MyClass {
     }
 
     @Test
+    //退出登录，无法在夜神模拟器进行
     public void tuichudenglu(){
         driver.findElementByAndroidUIAutomator
                 ("new UiSelector().text(\"我的\")").click();
